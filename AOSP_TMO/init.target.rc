@@ -395,6 +395,7 @@ on post-fs-data
     # Panel color temperature
     chmod 0660 /sys/class/lcd/panel/panel_colors
     chown system system /sys/class/lcd/panel/panel_colors
+
 service prepare_param /system/bin/prepare_param.sh /dev/block/platform/msm_sdcc.1/by-name/param
     class main
     user root
