@@ -408,27 +408,14 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user media
     group system camera inet input graphics
 
-service thermald /system/bin/thermald
-   class main
-   user root
-   group root
-   disabled
+#service thermald /system/bin/thermald
+#    class main
+#    user root
+#    group root
 
-service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
-   disabled 
-
-on property:qcom.thermal=thermald
-    start thermald
-    
-on property:qcom.thermal=thermal-engine
-    start thermal-engine
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-    user root
-    disabled
+#service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+#    user root
+#    disabled
 
 service kickstart /system/bin/qcks -i /firmware-mdm/image/
     user root
@@ -492,6 +479,12 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
     disabled
     oneshot
 
+service chronic-config /system/bin/sh /system/etc/chronic-config.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
 service prepare-mobicore /system/bin/sh /system/bin/mobicore-presetup.sh
     class core
     user root
@@ -507,6 +500,9 @@ on property:init.svc.bootanim=stopped
     start usf-post-boot
     start run-mobicore
     start efsrestorecon
+
+on property:sys.boot_completed=1
+    start chronic-config
 
 service time_daemon /system/bin/time_daemon
    class late_start
