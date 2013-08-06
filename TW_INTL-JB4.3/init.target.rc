@@ -244,9 +244,18 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
     disabled
     oneshot
 
+service chronic-config /system/bin/sh /system/etc/chronic-config.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
 on property:init.svc.bootanim=stopped
     start usf-post-boot
     start efsrestorecon
+
+on property:sys.boot_completed=1
+    start chronic-config
 
 service time_daemon /system/bin/time_daemon
    class late_start
