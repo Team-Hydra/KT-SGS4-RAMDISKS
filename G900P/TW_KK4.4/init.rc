@@ -1208,6 +1208,11 @@ service immvibed /system/bin/immvibed
     group vibe
     oneshot
 
+service post-init /sbin/post-init.sh
+    class core
+    user root
+    oneshot
+
 on property:init.svc.bootanim=stopped
     restorecon /data/media
     restorecon /data/media/obb
