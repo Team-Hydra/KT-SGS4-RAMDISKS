@@ -56,9 +56,9 @@ if [ -f /system/etc/init.qcom.mdm_links.sh ]; then
 fi
 
 # Run thermal script
-if [ -f /system/etc/init.qcom.thermal_conf.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.thermal_conf.sh
-fi
+#if [ -f /system/etc/init.qcom.thermal_conf.sh ]; then
+#  /system/bin/sh /system/etc/init.qcom.thermal_conf.sh
+#fi
 
 ## [BEGIN] system_sw.sa: Ignore wifi script.
 ## Run wifi script
