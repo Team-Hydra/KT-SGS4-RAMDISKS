@@ -200,10 +200,10 @@ service qseecomd /system/bin/qseecomd
    user root
    group root
 
-service mpdecision /system/bin/mpdecision --avg_comp
-   user root
-   disabled
-   oneshot
+#service mpdecision /system/bin/mpdecision --avg_comp
+#   user root
+#   disabled
+#   oneshot
    
 service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
    user system
