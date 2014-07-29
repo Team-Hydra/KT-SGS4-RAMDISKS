@@ -4,10 +4,6 @@ echo 578000000 > /sys/class/kgsl/kgsl-3d0/max_gpuclk;
 echo 4 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel;
 
 #enable oc
-echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_booted;
-echo 1 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_booted;
-echo 1 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_booted;
-echo 1 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_booted;
 echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/enable_oc;
 echo 1 > /sys/devices/system/cpu/cpu1/cpufreq/enable_oc;
 echo 1 > /sys/devices/system/cpu/cpu2/cpufreq/enable_oc;
