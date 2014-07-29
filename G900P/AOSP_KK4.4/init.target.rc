@@ -1058,6 +1058,12 @@ service qseecomd /system/bin/qseecomd
 #   user root
 #   group radio system
 
+service chronic-config /system/bin/sh /system/etc/chronic-config.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
 service time_daemon /system/bin/time_daemon
    class late_start
    user root
@@ -1429,3 +1435,4 @@ service createsystemfile /system/bin/createsystemfile
 
 on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/scheduler cfq
+    start chronic-config
